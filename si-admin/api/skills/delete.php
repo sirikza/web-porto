@@ -6,21 +6,16 @@ header("Access-Control-Max-Age: 3600");
 header("Access-Control-Allow-Headers: Content-Type, Access-Control-AllowHeaders, Authorization, X-Requested-With");
 include_once '../../config/database.php';
 include_once '../../models/Skills.php';
-
 $database = new Database();
 $db = $database->getConnection();
-session_start();
+
 $item = new Skills($db);
 $data = json_decode(file_get_contents("php://input"));
-$item->user_id = $data->user_id;
 
-if ($item->prosesLogin()) {
+$item->id = $data->id;
 
-    $data = $item->prosesLogin();
-    $_SESSION['user'] = $data;
-    http_response_code(200);
-    echo json_encode($_SESSION['user']);
+if ($item->deleteUser()) {
+    echo json_encode("User deleted.");
 } else {
-    http_response_code(404);
-    echo json_encode("Incorrect Email and Password!");
+    echo json_encode("Data could not be deleted");
 }

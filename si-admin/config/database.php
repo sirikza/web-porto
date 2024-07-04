@@ -2,7 +2,7 @@
 class Database
 {
     private $host = "localhost"; //domain
-    private $database_name = "biografi"; //nama database
+    private $database_name = "web-porto"; //nama database
     private $username = "root"; //username phpmyadmin
     private $password = ""; //password phpmyadmin
     public $conn; //alias koneksi

@@ -18,12 +18,8 @@
         <div class="container px-4">
             <form class="row g-1" id="sample_form">
                 <div class="col-md-12">
-                    <label for="email" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="email">
-                </div>
-                <div class="col-md-12">
-                    <label for="password" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="password">
+                    <label for="user_id" class="form-label">User ID</label>
+                    <input type="user_id" class="form-control" id="user_id">
                 </div>
                 <div class="col-12">
                     <button type="submit" class="btn btn-primary" id="action_button">Sign In</button>
@@ -38,8 +34,7 @@
                 event.preventDefault();
 
                 var formData = {
-                    'email': $('#email').val(),
-                    'password': $('#password').val()
+                    'user_id': $('#user_id').val()
                 }
                 $.ajax({
                     url: "http://localhost/web-porto-rikza/si-admin/api/auth/login.php",
@@ -47,7 +42,7 @@
                     data: JSON.stringify(formData),
                     success: function(data) {
                         $('#action_button').attr('disabled', false);
-                        window.location.href = 'http://localhost/web-porto-rikza/si-admin/views/users/';
+                        window.location.href = 'http://localhost/web-porto-rikza/si-admin/views/skills/';
 
                     },
                     error: function(err) {
