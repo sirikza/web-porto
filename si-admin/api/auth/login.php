@@ -22,5 +22,5 @@ if ($item->prosesLogin()) {
     echo json_encode($_SESSION['user']);
 } else {
     http_response_code(404);
-    echo json_encode("Incorrect Email and Password!");
+    echo json_encode("Incorrect User ID");
 }

@@ -23,9 +23,14 @@ if (!isset($_SESSION['user'])) {
     <div class="container">
         <div id="message">
         </div>
-        <a href="http://localhost/web-porto-rikza/si-admin/api/auth/logout.php"><button class="btn btn-danger btn-sm float-end">Logout</button> </a>
+
         <h1 class="mt-4 mb-4 text-center text-danger">SKILLS USER
             CRUD</h1>
+        <form class="row g-1" id="logout">
+            <div class="col-12">
+                <button type="submit" class="btn btn-danger float-end mb-3" id="action_button_l">Logout</button>
+            </div>
+        </form>
         <div class="card">
             <div class="card-header">
                 <div class="row">
@@ -95,7 +100,32 @@ if (!isset($_SESSION['user'])) {
         </div>
     </div>
 
+    <script>
+        $(document).ready(function() {
 
+            $('#logout').on('submit', function(event) {
+                event.preventDefault();
+
+                var formData = {
+                    'user_id': $('#user_id').val()
+                }
+                $.ajax({
+                    url: "http://localhost/web-porto-rikza/si-admin/api/auth/logout.php",
+                    method: "POST",
+                    data: JSON.stringify(formData),
+                    success: function(data) {
+                        $('#action_button_l').attr('disabled', false);
+                        window.location.href = 'http://localhost/web-porto-rikza/si-admin/views/Login/';
+
+                    },
+                    error: function(err) {
+                        console.log(err);
+                        $('#message').html('<div class="alert alert-danger">' + err.responseJSON + '</div>');
+                    }
+                });
+            });
+        });
+    </script>
 
     <script>
         $(document).ready(function() {
