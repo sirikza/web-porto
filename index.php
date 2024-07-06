@@ -50,11 +50,15 @@
           <li class="nav-item">
             <a class="nav-link" href="#skills">Skills</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="http://localhost/web-porto-rikza/si-admin/views/Login-web/">Login</a>
+          </li>
         </ul>
       </div>
     </div>
   </nav>
   <!-- End Navbar -->
+
   <!-- Jumbotron -->
   <section class="jumbotron text-center">
     <div class="container" style="color: #0f0f0f;" data-aos="zoom-in-up">
@@ -185,6 +189,13 @@
     <div class="container">
       <h1 class="fw-bold text-center mb-3" data-aos="fade-left" style="color: #0f0f0f;">SKILLS
       </h1>
+      <div>
+        <form class="row g-1" id="logout">
+          <div class="col-12">
+            <button type="submit" class="btn btn-danger float-end mb-2" id="action_button_l" data-aos="fade-left">Logout</button>
+          </div>
+        </form>
+      </div>
       <div class="card-dark" data-aos="fade-left">
         <div class="card-header">
           <div class="row">
@@ -261,6 +272,33 @@
     </div>
   </footer>
   <!-- End Footer -->
+
+  <script>
+    $(document).ready(function() {
+
+      $('#logout').on('submit', function(event) {
+        event.preventDefault();
+
+        var formData = {
+          'user_id': $('#user_id').val()
+        }
+        $.ajax({
+          url: "http://localhost/web-porto-rikza/si-admin/api/auth/logout.php",
+          method: "POST",
+          data: JSON.stringify(formData),
+          success: function(data) {
+            $('#action_button_l').attr('disabled', false);
+            window.location.href = 'http://localhost/web-porto-rikza/index.php';
+
+          },
+          error: function(err) {
+            console.log(err);
+            $('#message').html('<div class="alert alert-danger">' + err.responseJSON + '</div>');
+          }
+        });
+      });
+    });
+  </script>
 
   <script>
     $(document).ready(function() {
