@@ -51,7 +51,7 @@
             <a class="nav-link" href="#skills">Skills</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="http://localhost/web-porto-rikza/si-admin/views/Login-web/">Login</a>
+            <a class="nav-link" href="http://localhost/web-porto-rikza/si-admin/views/Login/">Login</a>
           </li>
         </ul>
       </div>
@@ -186,79 +186,28 @@
   <!-- User Skills -->
 
   <section id="skills" style="background-color: #696969;">
-    <div class="container">
+    <div class="container pb-5">
       <h1 class="fw-bold text-center mb-3" data-aos="fade-left" style="color: #0f0f0f;">SKILLS
       </h1>
-      <div>
-        <form class="row g-1" id="logout">
-          <div class="col-12">
-            <button type="submit" class="btn btn-danger float-end mb-2" id="action_button_l" data-aos="fade-left">Logout</button>
-          </div>
-        </form>
-      </div>
-      <div class="card-dark" data-aos="fade-left">
-        <div class="card-header">
+      <div class="card bg-danger" data-aos="fade-left">
+        <div class="card-header bg-dark">
           <div class="row">
-            <div class="col col-sm-9 fw-bold">Lenguage Programming</div>
-            <div class="col col-sm-3">
-              <button type="button" id="add_data" class="btn btn-success btn-sm float-end">Add</button>
-            </div>
+            <div class="col col-sm-9 fw-bold text-light fs-5">Lenguage Programming</div>
           </div>
         </div>
-        <div class="card-body">
+        <div class="card-body text-light">
           <div class="table-responsive">
-            <table class="table table-striped table-bordered" id="sample_data">
+            <table class="table table-dark table-striped table-bordered bg-dark text-light" id="sample_data">
               <thead>
                 <tr class="text-center">
                   <th>User ID</th>
                   <th>Skill Name</th>
                   <th>Rating (0/100)</th>
                   <th>Description</th>
-                  <th>Action</th>
                 </tr>
               </thead>
               <tbody></tbody>
             </table>
-          </div>
-        </div>
-      </div>
-      <div class="modal" tabindex="-1" id="action_modal">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <form method="post" id="sample_form">
-              <div class="modal-header">
-                <h5 class="modal-title" id="dynamic_modal_title"></h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                <div class="mb-3">
-                  <label class="form-label">User ID</label>
-                  <input type="text" name="user_id" id="user_id" class="form-control" />
-                  <span id="user_id_error" class="text-danger"></span>
-                </div>
-                <div class="mb-3">
-                  <label class="form-label">Skill Name</label>
-                  <input type="skill_name" name="skill_name" id="skill_name" class="form-control" />
-                  <span id="skill_name_error" class="text-danger"></span>
-                </div>
-                <div class="mb-3">
-                  <label class="form-label">Rating</label>
-                  <input type="rating" name="rating" id="rating" class="form-control" />
-                  <span id="rating_error" class="text-danger"></span>
-                </div>
-                <div class="mb-3">
-                  <label class="form-label">Description</label>
-                  <input type="text" name="description" id="description" class="form-control" />
-                  <span id="description_error" class="text-danger"></span>
-                </div>
-              </div>
-              <div class="modal-footer">
-                <input type="hidden" name="id" id="id" />
-                <input type="hidden" name="action" id="action" value="Add" />
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary" id="action_button">Add</button>
-              </div>
-            </form>
           </div>
         </div>
       </div>
@@ -403,9 +352,8 @@
               'user_id': json[i].user_id,
               'skill_name': json[i].skill_name,
               'rating': json[i].rating,
-              'description': json[i].description,
-              'action': '<button onclick="showOne(' + json[i].id + ')" class="btn btn-sm btn-warning">Edit</button>' +
-                '<button onclick="deleteOne(' + json[i].id + ')" class="btn btn-sm btn-danger">Delete</button>'
+              'description': json[i].description
+
             };
             dataSet.push(sub_array);
           }
@@ -422,10 +370,8 @@
               },
               {
                 data: "description"
-              },
-              {
-                data: "action"
               }
+
             ]
           });
         },

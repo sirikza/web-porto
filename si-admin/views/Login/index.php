@@ -11,6 +11,21 @@
 </head>
 
 <body>
+    <nav class="navbar navbar-expand-lg navbar-light shadow fixed-top" style="background-color: #ffffff;">
+        <div class="container">
+            <a class="navbar-brand fw-bold fs-3" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;" href="index.html">Login Admin</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse fs-5" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://localhost/web-porto-rikza/index.php">Home Page</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
     <div class="container">
         <h1 class="text-center text-danger mt-4">LOGIN</h1>
         <div id="message">
@@ -21,7 +36,7 @@
                     <label for="user_id" class="form-label">User ID</label>
                     <input type="user_id" class="form-control" id="user_id">
                 </div>
-                <div class="col-12">
+                <div class="col-12 mt-2">
                     <button type="submit" class="btn btn-primary" id="action_button">Sign In</button>
                 </div>
             </form>

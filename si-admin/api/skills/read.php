@@ -31,11 +31,11 @@ if (isset($_GET['id'])) {
         echo json_encode("User not found.");
     }
 } else {
-    if (!isset($_SESSION['user'])) {
-        http_response_code(404);
-        echo json_encode("You are not log in.");
-        return false;
-    }
+    // if (!isset($_SESSION['user'])) {
+    //     http_response_code(404);
+    //     echo json_encode("You are not log in.");
+    //     return false;
+    // }
 
     $items = new Skills($db);
     $stmt = $items->getUsers();
