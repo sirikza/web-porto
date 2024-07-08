@@ -45,10 +45,10 @@
             <a class="nav-link" href="#projects">Projects</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#contact">Contact</a>
+            <a class="nav-link" href="#skills">Skills</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#skills">Skills</a>
+            <a class="nav-link" href="#contact">Contact</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="http://localhost/web-porto-rikza/si-admin/views/Login/">Login</a>
@@ -152,8 +152,40 @@
     </svg>
   </section>
   <!-- End Projects -->
+
+  <!-- User Skills -->
+
+  <section id="skills" style="background-color: #0f0f0f;">
+    <div class="container pb-5">
+      <h1 class="fw-bold text-light text-center mb-3" data-aos="fade-left">SKILLS
+      </h1>
+      <div class="card bg-danger" data-aos="fade-left">
+        <div class="card-header bg-dark">
+          <div class="row">
+            <div class="col col-sm-9 fw-bold text-light fs-5">Lenguage Programming</div>
+          </div>
+        </div>
+        <div class="card-body text-light">
+          <div class="table-responsive">
+            <table class="table table-dark table-striped table-bordered bg-dark text-light" id="sample_data">
+              <thead>
+                <tr class="text-center">
+                  <th>User ID</th>
+                  <th>Skill Name</th>
+                  <th>Rating (0/100)</th>
+                  <th>Description</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Contact -->
-  <section id="contact" style="background-color: #0f0f0f;">
+  <section id="contact" style="background-color: #696969;">
     <div class="container pb-5">
       <div class="row text-center text-light">
         <div class="col">
@@ -182,37 +214,6 @@
     </div>
   </section>
   <!-- End Contact -->
-
-  <!-- User Skills -->
-
-  <section id="skills" style="background-color: #696969;">
-    <div class="container pb-5">
-      <h1 class="fw-bold text-center mb-3" data-aos="fade-left" style="color: #0f0f0f;">SKILLS
-      </h1>
-      <div class="card bg-danger" data-aos="fade-left">
-        <div class="card-header bg-dark">
-          <div class="row">
-            <div class="col col-sm-9 fw-bold text-light fs-5">Lenguage Programming</div>
-          </div>
-        </div>
-        <div class="card-body text-light">
-          <div class="table-responsive">
-            <table class="table table-dark table-striped table-bordered bg-dark text-light" id="sample_data">
-              <thead>
-                <tr class="text-center">
-                  <th>User ID</th>
-                  <th>Skill Name</th>
-                  <th>Rating (0/100)</th>
-                  <th>Description</th>
-                </tr>
-              </thead>
-              <tbody></tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- Footer -->
   <footer class="" style="margin-bottom: -20px;">
