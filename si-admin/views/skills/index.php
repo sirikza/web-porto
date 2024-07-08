@@ -283,24 +283,27 @@ if (!isset($_SESSION['user'])) {
         }
 
         function deleteOne(id) {
-            alert('Yakin untuk hapus data ?');
-            $.ajax({
-                url: "http://localhost/web-porto-rikza/si-admin/api/skills/delete.php",
-                method: "DELETE",
-                data: JSON.stringify({
-                    "id": id
-                }),
-                success: function(data) {
-                    $('#action_button').attr('disabled', false);
-                    $('#message').html('<div class="alert alert-success">' + data + '</div>');
-                    $('#action_modal').modal('hide');
-                    $('#sample_data').DataTable().destroy();
-                    showAll();
-                },
-                error: function(err) {
-                    console.log(err);
-                }
-            });
+            var konfirmasiUser = confirm("Yakin untuk hapus data ?");
+            if (konfirmasiUser) {
+                $.ajax({
+                    url: "http://localhost/web-porto-rikza/si-admin/api/skills/delete.php",
+                    method: "DELETE",
+                    data: JSON.stringify({
+                        id: id,
+                    }),
+                    success: function(data) {
+                        $("#action_button").attr("disabled", false);
+                        $("#message").html('<div class="alert alert-success">' + data + "</div>");
+                        $("#action_modal").modal("hide");
+                        $("#sample_data").DataTable().destroy();
+                        showAll();
+                    },
+                    error: function(err) {
+                        console.log(err);
+                        $("#message").html('<div class="alert alert-danger">' + err.responseJSON + '</div>');
+                    },
+                });
+            }
         }
     </script>
 </body>
