@@ -27,13 +27,6 @@ if (!isset($_SESSION['user'])) {
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse fs-5" id="navbarNav">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="http://localhost/web-porto-rikza/index.php">Home Page</a>
-                        </li>
-                    </ul>
-                </div>
             </div>
         </nav>
         <div style="background-color: #696969;">
@@ -134,7 +127,7 @@ if (!isset($_SESSION['user'])) {
                     data: JSON.stringify(formData),
                     success: function(data) {
                         $('#action_button_l').attr('disabled', false);
-                        window.location.href = 'http://localhost/web-porto-rikza/si-admin/views/Login/';
+                        window.location.href = 'https://mrikza17.amisbudi.cloud/WEB_UAS/';
 
                     },
                     error: function(err) {
