@@ -5,11 +5,11 @@ header("Access-Control-Allow-Methods: POST");
 header("Access-Control-Max-Age: 3600");
 header("Access-Control-Allow-Headers: Content-Type, Access-Control-AllowHeaders, Authorization, X-Requested-With");
 include_once '../../config/database.php';
-include_once '../../models/Skills.php';
+include_once '../../models/Users.php';
 
 $database = new Database();
 $db = $database->getConnection();
-$item = new Skills($db);
+$item = new Users($db);
 
 if ($item->prosesLogout()) {
     http_response_code(200);

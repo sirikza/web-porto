@@ -1,8 +1,8 @@
 <?php
-session_start();
-if (!isset($_SESSION['user'])) {
-    return header('Location: http://localhost/web-porto-rikza/si-admin/views/Login/');
-}
+// session_start();
+// if (!isset($_SESSION['user'])) {
+//     return header('Location: https://mrikza17.amisbudi.cloud/web-porto-rikza-uas/si-admin/views/Login/');
+// }
 ?>
 <!doctype html>
 <html lang="en">
@@ -10,7 +10,7 @@ if (!isset($_SESSION['user'])) {
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Users - Web Porto</title>
+    <title>Skills - Web Porto</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.min.js" integrity="sha384-heAjqF+bCxXpCWLa6Zhcp4fu20XoNIA98ecBC1YkdXhszjoejr5y9Q77hIrv8R9i" crossorigin="anonymous"></script>
@@ -23,10 +23,17 @@ if (!isset($_SESSION['user'])) {
     <div class="bg-secondary">
         <nav class="navbar navbar-expand-lg navbar-light shadow fixed-top" style="background-color: #ffffff;">
             <div class="container">
-                <a class="navbar-brand fw-bold fs-3" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;" href="index.html">User Admin</a>
+                <a class="navbar-brand fw-bold fs-3" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;" href="index.html">Admin</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+                <div class="collapse navbar-collapse fs-5" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="https://mrikza17.amisbudi.cloud/web-porto-rikza-uas/">Home Page</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </nav>
         <div style="background-color: #696969;">
@@ -36,11 +43,6 @@ if (!isset($_SESSION['user'])) {
 
                 <h1 class="mt-4 mb-4 text-center text-danger">SKILLS USER
                     CRUD</h1>
-                <form class="row g-1" id="logout">
-                    <div class="col-12">
-                        <button type="submit" class="btn btn-danger float-end mb-3" id="action_button_l">Logout</button>
-                    </div>
-                </form>
                 <div class="card">
                     <div class="card-header">
                         <div class="row">
@@ -112,32 +114,6 @@ if (!isset($_SESSION['user'])) {
         </div>
     </div>
 
-    <script>
-        $(document).ready(function() {
-
-            $('#logout').on('submit', function(event) {
-                event.preventDefault();
-
-                var formData = {
-                    'user_id': $('#user_id').val()
-                }
-                $.ajax({
-                    url: "http://localhost/web-porto-rikza/si-admin/api/auth/logout.php",
-                    method: "POST",
-                    data: JSON.stringify(formData),
-                    success: function(data) {
-                        $('#action_button_l').attr('disabled', false);
-                        window.location.href = 'https://mrikza17.amisbudi.cloud/WEB_UAS/';
-
-                    },
-                    error: function(err) {
-                        console.log(err);
-                        $('#message').html('<div class="alert alert-danger">' + err.responseJSON + '</div>');
-                    }
-                });
-            });
-        });
-    </script>
 
     <script>
         $(document).ready(function() {
@@ -163,7 +139,7 @@ if (!isset($_SESSION['user'])) {
                     }
 
                     $.ajax({
-                        url: "http://localhost/web-porto-rikza/si-admin/api/skills/create.php",
+                        url: "https://mrikza17.amisbudi.cloud/web-porto-rikza-uas/si-admin/api/skills/create.php",
                         method: "POST",
                         data: JSON.stringify(formData),
                         success: function(data) {
@@ -187,7 +163,7 @@ if (!isset($_SESSION['user'])) {
                     }
 
                     $.ajax({
-                        url: "http://localhost/web-porto-rikza/si-admin/api/skills/update.php",
+                        url: "https://mrikza17.amisbudi.cloud/web-porto-rikza-uas/si-admin/api/skills/update.php",
                         method: "PUT",
                         data: JSON.stringify(formData),
                         success: function(data) {
@@ -211,7 +187,7 @@ if (!isset($_SESSION['user'])) {
             $.ajax({
                 type: "GET",
                 contentType: "application/json",
-                url: "http://localhost/web-porto-rikza/si-admin/api/skills/read.php",
+                url: "https://mrikza17.amisbudi.cloud/web-porto-rikza-uas/si-admin/api/skills/read.php",
                 success: function(response) {
                     // console.log(response);
                     var json = response.body;
@@ -264,7 +240,7 @@ if (!isset($_SESSION['user'])) {
             $.ajax({
                 type: "GET",
                 contentType: "application/json",
-                url: "http://localhost/web-porto-rikza/si-admin/api/skills/read.php?id=" + id,
+                url: "https://mrikza17.amisbudi.cloud/web-porto-rikza-uas/si-admin/api/skills/read.php?id=" + id,
                 success: function(response) {
                     $('#id').val(response.id);
                     $('#user_id').val(response.user_id);
@@ -280,10 +256,10 @@ if (!isset($_SESSION['user'])) {
         }
 
         function deleteOne(id) {
-            var konfirmasiUser = confirm("Yakin untuk hapus data ?");
-            if (konfirmasiUser) {
+            var confirmUser = confirm("Yakin untuk hapus data ?");
+            if (confirmUser) {
                 $.ajax({
-                    url: "http://localhost/web-porto-rikza/si-admin/api/skills/delete.php",
+                    url: "https://mrikza17.amisbudi.cloud/web-porto-rikza-uas/si-admin/api/skills/delete.php",
                     method: "DELETE",
                     data: JSON.stringify({
                         id: id,

@@ -51,7 +51,7 @@
             <a class="nav-link" href="#contact">Contact</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="http://localhost/web-porto-rikza/si-admin/views/Login/">Login</a>
+            <a class="nav-link" href="https://mrikza17.amisbudi.cloud/web-porto-rikza-uas/si-admin/views/Login/">Login</a>
           </li>
         </ul>
       </div>
@@ -163,6 +163,7 @@
         <div class="card-header bg-dark">
           <div class="row">
             <div class="col col-sm-9 fw-bold text-light fs-5">Lenguage Programming</div>
+            <a class="text-end text-light fw-bold" href="https://mrikza17.amisbudi.cloud/web-porto-rikza-uas/si-admin/views/skills">LOGIN</a>
           </div>
         </div>
         <div class="card-body text-light">
@@ -233,12 +234,12 @@
           'user_id': $('#user_id').val()
         }
         $.ajax({
-          url: "http://localhost/web-porto-rikza/si-admin/api/auth/logout.php",
+          url: "https://mrikza17.amisbudi.cloud/web-porto-rikza-uas/si-admin/api/auth/loginSkills.php",
           method: "POST",
           data: JSON.stringify(formData),
           success: function(data) {
             $('#action_button_l').attr('disabled', false);
-            window.location.href = 'http://localhost/web-porto-rikza/index.php';
+            window.location.href = 'https://mrikza17.amisbudi.cloud/web-porto-rikza-uas/si-admin/views/skills';
 
           },
           error: function(err) {
@@ -258,7 +259,7 @@
         $.ajax({
           type: "GET",
           contentType: "application/json",
-          url: "http://localhost/web-porto-rikza/si-admin/api/users/read.php?id=",
+          url: "https://mrikza17.amisbudi.cloud/web-porto-rikza-uas/si-admin/api/users/read.php?id=",
           success: function(response) {
             $("#full_name").text(response.full_name); //mengubah elemen html dengan .text(nilai) atau .html(nilai)
             $("#job_position").text(response.job + " | " + response.expected_position);
@@ -295,7 +296,7 @@
           }
 
           $.ajax({
-            url: "http://localhost/web-porto-rikza/si-admin/api/skills/create.php",
+            url: "https://mrikza17.amisbudi.cloud/web-porto-rikza-uas/si-admin/api/skills/create.php",
             method: "POST",
             data: JSON.stringify(formData),
             success: function(data) {
@@ -319,7 +320,7 @@
           }
 
           $.ajax({
-            url: "http://localhost/web-porto-rikza/si-admin/api/skills/update.php",
+            url: "https://mrikza17.amisbudi.cloud/web-porto-rikza-uas/si-admin/api/skills/update.php",
             method: "PUT",
             data: JSON.stringify(formData),
             success: function(data) {
@@ -343,7 +344,7 @@
       $.ajax({
         type: "GET",
         contentType: "application/json",
-        url: "http://localhost/web-porto-rikza/si-admin/api/skills/read.php",
+        url: "https://mrikza17.amisbudi.cloud/web-porto-rikza-uas/si-admin/api/skills/read.php",
         success: function(response) {
           // console.log(response);
           var json = response.body;
@@ -393,7 +394,7 @@
       $.ajax({
         type: "GET",
         contentType: "application/json",
-        url: "http://localhost/web-porto-rikza/si-admin/api/skills/read.php?id=" + id,
+        url: "https://mrikza17.amisbudi.cloud/web-porto-rikza-uas/si-admin/api/skills/read.php?id=" + id,
         success: function(response) {
           $('#id').val(response.id);
           $('#user_id').val(response.user_id);
@@ -411,7 +412,7 @@
     function deleteOne(id) {
       alert('Yakin untuk hapus data ?');
       $.ajax({
-        url: "http://localhost/web-porto-rikza/si-admin/api/skills/delete.php",
+        url: "https://mrikza17.amisbudi.cloud/web-porto-rikza-uas/si-admin/api/skills/delete.php",
         method: "DELETE",
         data: JSON.stringify({
           "id": id

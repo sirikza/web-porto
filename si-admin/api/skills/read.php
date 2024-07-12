@@ -14,7 +14,7 @@ $db = $database->getConnection();
 if (isset($_GET['id'])) {
     $item = new Skills($db);
     $item->id = isset($_GET['id']) ? $_GET['id'] : die();
-    $item->getSingleUser();
+    $item->getSingleSkills();
     if ($item->skill_name != null) {
         // create array
         $emp_arr = array(
@@ -38,7 +38,7 @@ if (isset($_GET['id'])) {
     // }
 
     $items = new Skills($db);
-    $stmt = $items->getUsers();
+    $stmt = $items->getSkills();
     $itemCount = $stmt->rowCount();
     if ($itemCount > 0) {
         $UserArr = array();

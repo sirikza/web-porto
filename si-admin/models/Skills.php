@@ -17,7 +17,7 @@ class Skills
         $this->conn = $db;
     }
     // GET ALL
-    public function getUsers()
+    public function getSkills()
     {
         $sqlQuery = "SELECT id, user_id, skill_name, rating, description FROM " . $this->db_table . "";
         $stmt = $this->conn->prepare($sqlQuery); //untuk mengkoneksikan dan eksekusi query
@@ -26,15 +26,15 @@ class Skills
     }
 
     // GET ALL
-    public function getTotalStudent()
+    public function getTotalSkills()
     {
-        $sqlQuery = "SELECT count(id) as total_skills FROM " . $this->db_table . " WHERE skill_name = 'Java Script'";
+        $sqlQuery = "SELECT count(id) as total_skills FROM " . $this->db_table . " WHERE skill_name = 'CSS'";
         $stmt = $this->conn->prepare($sqlQuery); //untuk mengkoneksikan dan eksekusi query
         $stmt->execute();
         return $stmt;
     }
     // CREATE
-    public function createUser()
+    public function createSkills()
     {
         $sqlQuery = "INSERT INTO " . $this->db_table . "
         SET
@@ -60,7 +60,7 @@ class Skills
         return false;
     }
     // READ single
-    public function getSingleUser()
+    public function getSingleSkills()
     {
         $sqlQuery = "SELECT
         id,
@@ -83,7 +83,7 @@ class Skills
         $this->description = $dataRow['description'];
     }
     // UPDATE
-    public function updateUser()
+    public function updateSkills()
     {
         $sqlQuery = "UPDATE
         " . $this->db_table . "
@@ -120,7 +120,7 @@ class Skills
         }
     }
     // DELETE
-    function deleteUser()
+    function deleteSkills()
     {
         $sqlQuery = "DELETE FROM " . $this->db_table . " WHERE id = ?";
         $stmt = $this->conn->prepare($sqlQuery);

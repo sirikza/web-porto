@@ -5,14 +5,15 @@ header("Access-Control-Allow-Methods: POST");
 header("Access-Control-Max-Age: 3600");
 header("Access-Control-Allow-Headers: Content-Type, Access-Control-AllowHeaders, Authorization, X-Requested-With");
 include_once '../../config/database.php';
-include_once '../../models/Skills.php';
+include_once '../../models/Users.php';
 
 $database = new Database();
 $db = $database->getConnection();
 session_start();
-$item = new Skills($db);
+$item = new Users($db);
 $data = json_decode(file_get_contents("php://input"));
-$item->user_id = $data->user_id;
+$item->email = $data->email;
+$item->password = $data->password;
 
 if ($item->prosesLogin()) {
 
@@ -22,5 +23,5 @@ if ($item->prosesLogin()) {
     echo json_encode($_SESSION['user']);
 } else {
     http_response_code(404);
-    echo json_encode("Incorrect User ID");
+    echo json_encode("Incorrect User email & password");
 }

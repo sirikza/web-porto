@@ -6,20 +6,15 @@ header("Access-Control-Max-Age: 3600");
 header("Access-Control-Allow-Headers: Content-Type, Access-Control-AllowHeaders, Authorization, X-Requested-With");
 include_once '../../config/database.php';
 include_once '../../models/Skills.php';
+
 $database = new Database();
 $db = $database->getConnection();
 $item = new Skills($db);
-$data = json_decode(file_get_contents("php://input"));
-$item->id = $data->id;
 
-// User values
-$item->user_id = $data->user_id;
-$item->skill_name = $data->skill_name;
-$item->rating = $data->rating;
-$item->description = $data->description;
-
-if ($item->updateSkills()) {
-    echo json_encode(["message" => "User data updated."]);
+if ($item->prosesLogout()) {
+    http_response_code(200);
+    echo json_encode("You have successfully logout");
 } else {
-    echo json_encode("Data could not be updated");
+    http_response_code(404);
+    echo json_encode("Server Error");
 }

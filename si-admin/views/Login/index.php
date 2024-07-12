@@ -12,7 +12,7 @@
 
 <body>
     <div class="bg-danger">
-        <nav class="navbar navbar-expand-lg navbar-light shadow fixed-top" style="background-color: #ffffff;">
+        <nav class="navbar navbar-expand-lg navbar-light " style="background-color: #ffffff;">
             <div class="container">
                 <a class="navbar-brand fw-bold fs-3" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;" href="index.html">Login Admin</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -21,24 +21,28 @@
                 <div class="collapse navbar-collapse fs-5" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="http://localhost/web-porto-rikza/index.php">Home Page</a>
+                            <a class="nav-link" href="https://mrikza17.amisbudi.cloud/web-porto-rikza-uas/">Home Page</a>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
         <div class="container">
-            <h1 class="text-center text-danger mt-4">LOGIN</h1>
+            <h1 class="text-end text-dark mt-4 fs-4">LOGIN USERS CRUD</h1>
             <div id="message">
             </div>
-            <div class="container px-4">
+            <div class="container mt-3">
                 <form class="row g-1" id="sample_form">
                     <div class="col-md-12">
-                        <label for="user_id" class="form-label">User ID</label>
-                        <input type="user_id" class="form-control" id="user_id">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email">
                     </div>
-                    <div class="col-12 mt-2">
-                        <button type="submit" class="btn btn-dark" id="action_button">Sign In</button>
+                    <div class="col-md-12">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="password">
+                    </div>
+                    <div class="col-12">
+                        <button type="submit" class="btn btn-primary mt-3 mb-5" id="action_button">Sign In</button>
                     </div>
                 </form>
             </div>
@@ -52,15 +56,16 @@
                 event.preventDefault();
 
                 var formData = {
-                    'user_id': $('#user_id').val()
+                    'email': $('#email').val(),
+                    'password': $('#password').val()
                 }
                 $.ajax({
-                    url: "http://localhost/web-porto-rikza/si-admin/api/auth/login.php",
+                    url: "https://mrikza17.amisbudi.cloud/web-porto-rikza-uas/si-admin/api/auth/login.php",
                     method: "POST",
                     data: JSON.stringify(formData),
                     success: function(data) {
                         $('#action_button').attr('disabled', false);
-                        window.location.href = 'http://localhost/web-porto-rikza/si-admin/views/skills/';
+                        window.location.href = 'https://mrikza17.amisbudi.cloud/web-porto-rikza-uas/si-admin/views/users/';
 
                     },
                     error: function(err) {
@@ -71,6 +76,7 @@
             });
         });
     </script>
+
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
 </body>
